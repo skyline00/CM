@@ -1,5 +1,9 @@
 package com.skyline;
 
+import javax.persistence.EntityManager;
+
+import com.skyline.database.EntityManagerUtil;
+import com.skyline.database.entity.Owner;
 import com.skyline.panes.login.LoginPane;
 import com.skyline.utils.Messages;
 
@@ -10,9 +14,21 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+	
+	private static EntityManager em = EntityManagerUtil.getEntityManager();
 
 	public static void main(String[] args) {
-		launch(args);
+		
+		Owner owner = new Owner();
+		owner.setLogin("aaaa");
+		owner.setPassword("aaaa");
+		owner.setActive(true);
+		
+		em.getTransaction().begin();
+		owner = em.merge(owner);
+	    em.getTransaction().commit();
+		
+		//launch(args);
 	}
 
 	@Override
