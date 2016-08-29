@@ -43,6 +43,11 @@ public class AppFrame {
 	}
     
     @FXML
+    void actionUsers(ActionEvent event) {
+    	
+    }
+    
+    @FXML
     void actionExit(ActionEvent event) {
     	Platform.exit();
     }

@@ -2,16 +2,23 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.skyline.panes.login.LoginPane">
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#keyPressed" prefHeight="150.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.skyline.panes.login.LoginPane">
    <center>
-      <VBox BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
+            <Label text="Sky Car Maintainer">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
             <TextField fx:id="txtFieldLogin" promptText="login">
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -22,7 +29,7 @@
                </VBox.margin></PasswordField>
             <HBox alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#actionLogin" text="Login">
+                  <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#actionLogin" text="Login">
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin></Button>
@@ -33,6 +40,9 @@
                </children>
             </HBox>
          </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
       </VBox>
    </center>
 </BorderPane>

@@ -1,12 +1,18 @@
 package com.skyline.utils;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
 
+import org.apache.log4j.Logger;
+
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 
 public class Utils {
+	
+	final static Logger logger = Logger.getLogger(Utils.class);
 
     public static boolean showAlert(String title, String header, String message, AlertType alertType) {
     	Alert alert = new Alert(alertType);
@@ -22,4 +28,38 @@ public class Utils {
 		}
     }
 
+    public static String hashMD5(String string) {
+        MessageDigest md;
+		try {
+			md = MessageDigest.getInstance("MD5");
+			md.update(string.getBytes());
+
+	        byte byteData[] = md.digest();
+
+	        //convert the byte to hex format method 1
+	        StringBuffer sb = new StringBuffer();
+	        for (int i = 0; i < byteData.length; i++) {
+	         sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+	        }
+
+	        return sb.toString();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+			return null;
+		}
+        
+    	/*byte[] b;
+		try {
+			b = string.getBytes("UTF-8");
+	    	MessageDigest md = MessageDigest.getInstance("MD5");
+	    	byte[] hash = md.digest(b);
+	    	return hash;
+		} catch (UnsupportedEncodingException e) {
+			logger.error(e);
+			e.printStackTrace();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		return null;*/
+    }
 }
