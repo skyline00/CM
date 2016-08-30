@@ -10,5 +10,6 @@ public class Messages {
 	public static String noSuchLogin = "There is no user named ";
 	public static String noLoginOrPass = "No username or password passed.";
 	public static String incorrectLoginOrPass = "Incorrect username or password.";
+	public static String addCarPane = "Add car";
 
 }

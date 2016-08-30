@@ -23,7 +23,6 @@ public class Main extends Application {
 		owner = em.merge(owner);
 	    em.getTransaction().commit();
 	    em.close();*/
-		
 		launch(args);
 	}
 

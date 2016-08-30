@@ -47,19 +47,14 @@ public class Utils {
 			e.printStackTrace();
 			return null;
 		}
-        
-    	/*byte[] b;
-		try {
-			b = string.getBytes("UTF-8");
-	    	MessageDigest md = MessageDigest.getInstance("MD5");
-	    	byte[] hash = md.digest(b);
-	    	return hash;
-		} catch (UnsupportedEncodingException e) {
-			logger.error(e);
-			e.printStackTrace();
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-		}
-		return null;*/
+    }
+    
+    public static Double stringToDouble(String string) {
+    	try {
+    		return Double.parseDouble(string.replaceAll(" ","."));
+    	} catch(NumberFormatException e) {
+    		e.printStackTrace();
+    		return null;
+    	}
     }
 }

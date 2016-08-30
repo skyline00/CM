@@ -1,10 +1,13 @@
 package com.skyline.database.query;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import com.skyline.database.EntityManagerUtil;
+import com.skyline.database.entity.Car;
 import com.skyline.database.entity.Owner;
 
 public class Queries {
@@ -19,6 +22,19 @@ public class Queries {
 				.setParameter(1, login);
 		try {
 			return q.getSingleResult();
+		} catch(NoResultException e) {
+			return null;
+		}
+	}
+	
+	public static List<Car> getCarsByOwner(Owner owner) {
+		TypedQuery<Car> q = em.createQuery(
+				"SELECT c " +
+				"FROM Car c " +
+				"WHERE c.owner = ?1", Car.class)
+				.setParameter(1, owner);
+		try {
+			return q.getResultList();
 		} catch(NoResultException e) {
 			return null;
 		}

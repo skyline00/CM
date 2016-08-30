@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.skyline.database.entity.Owner;
 import com.skyline.database.query.Queries;
+import com.skyline.utils.Global;
 import com.skyline.utils.Messages;
 import com.skyline.utils.Utils;
 
@@ -60,14 +61,14 @@ public class LoginPane {
 		if (verify()) {
     		owner = Queries.getOwnerByLogin(txtFieldLogin.getText());
     		if (owner != null) {
+    			Global.getInstance().setOwner(owner);
 	    		if (matchPasswords(passFieldPassword.getText())) {
 	    			FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/fxml/AppFrame.fxml"));
 		    		try {
 						BorderPane borderPane = loader.load();
 						Scene scene = new Scene(borderPane);
 						stage.setScene(scene);
-						stage.setFullScreen(true);
-						stage.setResizable(false);
+						stage.setMaximized(true);
 						stage.show();
 					} catch (IOException e) {
 						System.out.println("Cannot load main pane.");
@@ -100,7 +101,7 @@ public class LoginPane {
 		}
 		return false;
 	}
-
+    
 	public void setStage(Stage stage) {
 		this.stage = stage;
 	}

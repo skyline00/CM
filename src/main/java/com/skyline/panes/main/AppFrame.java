@@ -27,7 +27,7 @@ public class AppFrame {
     
     @FXML
     void initialize() {
-    	setCenter("/fxml/MainPane.fxml");
+    	//setCenter("/fxml/MainPane.fxml");
     }
 
 	private void setCenter(String resource) {
@@ -44,7 +44,12 @@ public class AppFrame {
     
     @FXML
     void actionUsers(ActionEvent event) {
-    	
+    	setCenter("/fxml/OwnerPane.fxml");
+    }
+    
+    @FXML
+    void actionCars(ActionEvent event) {
+    	setCenter("/fxml/CarPane.fxml");
     }
     
     @FXML

@@ -1,12 +1,14 @@
 package com.skyline.database.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -31,7 +33,9 @@ public class Owner implements Serializable {
 	@Column(name = "active")
 	private Boolean active;
 	
-	
+	@OneToMany(mappedBy="owner")
+	private List<Car> cars;
+
 	public Integer getOwnerId() {
 		return ownerId;
 	}
@@ -54,6 +58,14 @@ public class Owner implements Serializable {
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public List<Car> getCars() {
+		return cars;
+	}
+
+	public void setCars(List<Car> cars) {
+		this.cars = cars;
 	}
 	
 	public Boolean getActive() {

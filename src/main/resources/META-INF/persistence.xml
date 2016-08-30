@@ -5,6 +5,7 @@
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 	
 		<class>com.skyline.database.entity.Owner</class>
+		<class>com.skyline.database.entity.Car</class>
 	
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />

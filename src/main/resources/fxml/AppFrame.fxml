@@ -2,13 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="mainBorderPane" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.skyline.panes.main.AppFrame">
+<BorderPane fx:id="mainBorderPane" prefHeight="895.0" prefWidth="1281.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.skyline.panes.main.AppFrame">
    <top>
       <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
         <menus>
@@ -31,13 +33,17 @@
       </MenuBar>
    </top>
    <right>
-      <VBox fx:id="vBoxRight" prefWidth="100.0" BorderPane.alignment="CENTER" />
+      <VBox fx:id="vBoxRight" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Label" />
+            <Label text="Label" />
+         </children></VBox>
    </right>
    <left>
-      <VBox fx:id="vBoxLeft" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="vBoxLeft" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#actionUsers" prefWidth="100.0" text="Users" />
-            <Button mnemonicParsing="false" prefWidth="100.0" text="Cars" />
+            <Button mnemonicParsing="false" onAction="#actionCars" prefWidth="100.0" text="Cars" />
             <Button mnemonicParsing="false" prefWidth="100.0" text="Options">
                <VBox.margin>
                   <Insets top="30.0" />
@@ -56,4 +62,18 @@
          </opaqueInsets>
       </VBox>
    </left>
+   <bottom>
+      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+         <children>
+            <Label text="Created by: Patryk Szczęch">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+   </bottom>
 </BorderPane>
